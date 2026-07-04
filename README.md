@@ -15,11 +15,9 @@ Jako absolwent kierunku Big Data na SGH rozwijam się w obszarze Data Science. W
 ---
 
 ## 🚀 Projekty
+[👉 Zobacz moje projekty](./Projekty.md)
 
-### [Porównanie klasycznego i kwantowego SVM](https://github.com/m-kopacz/qSVM_klasyfikacja)
-Zbudowałem i porównałem modele SVM (klasyczny vs kwantowy qSVM) na zbiorze heart-statlog. 
-* **Technologie:** `Python`, `PennyLane`, `scikit-learn`, `XGBoost`
-* **Wynik:** Uzyskano identyczne predykcje w najlepszych wariantach modeli, z marginalną przewagą klasycznego SVM w kwestii ROC AUC (0.90 vs 0.89).
+
 
 ---
 
