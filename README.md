@@ -1,37 +1,29 @@
-# Kim jest Maciek?
+# Kim jestem?
 
-Jako absolwent kierunku Big Data na SGH rozwijam się w obszarze Data Science. Z pasją rozwiązuję złożone problemy analityczne i buduję modele predykcyjne.
+Jako absolwent kierunku Big Data na SGH rozwijam się w obszarze Data Science. W trakcie studiów zdobyłem doświadczenie w rozwiązywaniu złożonych problemów analitycznych i buduwie modeli predykcyjnych.
 
 ## 🎓 Wykształcenie
 
-* **Magister, [Nazwa Kierunku]**  
+* **Magister, Analiza Danych - Big Data**  
   *Szkoła Główna Handlowa w Warszawie* 2024-2026
-  *Kierunek:* Analiza Danych - Big Data
   *Temat pracy magisterskiej:* Głębokie uczenie ze wzmocnieniem w handlu algorytmicznym: analiza efektywności w zmiennych uwarunkowaniach koniunkturalnych polskiego rynku akcji
 
-* **Licencjat, [Nazwa Kierunku]**  
+* **Licencjat, Metody ilościowe w ekonomii i systemy informacyjne**  
   *Szkoła Główna Handlowa w Warszawie* 2021-2024
-  *Kierunek:* Metody ilościowe w ekonomii i systemy informacyjne
   *Temat pracy licencjackiej:* Analiza ekonometryczna determinant stopy inwestycji w wybranych państwach europejskich
 
 ---
 
-## 🚀 Wybrane projekty
+## 🚀 Projekty
 
-Oto repozytoria, które najlepiej prezentują moje umiejętności (kliknij w tytuł, aby przejść do kodu):
-
-### 🧠 [Porównanie klasycznego i kwantowego SVM](https://github.com/TwojLogin/NazwaTwojegoRepo)
-Projekt badawczy zrealizowany w ramach Quantum Machine Learning. Zbudowałem i porównałem model XGBoost z preselekcją cech oraz modele SVM (klasyczny vs kwantowy qSVM) na zbiorze heart-statlog. 
+### [Porównanie klasycznego i kwantowego SVM](https://github.com/m-kopacz/qSVM_klasyfikacja)
+Zbudowałem i porównałem modele SVM (klasyczny vs kwantowy qSVM) na zbiorze heart-statlog. 
 * **Technologie:** `Python`, `PennyLane`, `scikit-learn`, `XGBoost`
-* **Wynik:** Wykazano identyczną jakość predykcji, z marginalną przewagą klasycznego AUC (0.90 vs 0.89).
-
-### 📊 [Tytuł Drugiego Projektu](https://github.com/TwojLogin/NazwaDrugiegoRepo)
-Krótki, jedno- lub dwuzdaniowy opis tego, co robi aplikacja, jaki problem rozwiązuje i skąd brałeś dane.
-* **Technologie:** `Pandas`, `Matplotlib`, `SQL`
+* **Wynik:** Uzyskano identyczne predykcje w najlepszych wariantach modeli, z marginalną przewagą klasycznego SVM w kwestii ROC AUC (0.90 vs 0.89).
 
 ---
 
-## 🛠 Stos technologiczny
+## 🛠 Technologie
 
 <!-- Odznaki (Badges) wygenerowane przez shields.io -->
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
@@ -43,6 +35,5 @@ Krótki, jedno- lub dwuzdaniowy opis tego, co robi aplikacja, jaki problem rozwi
 
 ## 📫 Kontakt
 
-Możesz mnie znaleźć tutaj:
 * **[LinkedIn](https://www.linkedin.com/in/maciej-kopacz-9b104341b/)**
 * **Email:** maciekopacz7@gmail.com
