@@ -1,6 +1,6 @@
 # Klka słów o mnie
 
-Jako absolwent kierunku Big Data na SGH rozwijam się w obszarze Data Science. W trakcie studiów zdobyłem doświadczenie w rozwiązywaniu złożonych problemów analitycznych i budowie modeli predykcyjnych.
+Jako absolwent kierunku Big Data na SGH rozwijam się w obszarze Data Science. W trakcie studiów zdobyłem doświadczenie w rozwiązywaniu problemów analitycznych i budowie modeli predykcyjnych.
 
 ## 🎓 Wykształcenie
 
