@@ -1,7 +1,7 @@
 # Projekty
 ---
 
-### [Głębokie uczenie ze wzmocnieniem w optymalizacji obrotu akcjami spółek WIG20](https://github.com/m-kopacz/DRL_handel_algorytmiczny_polski_rynek_akcji)
+### [Głębokie uczenie ze wzmocnieniem w optymalizacji obrotu akcjami spółek WIG20](https://github.com/m-kopacz/DRL_handel_algorytmiczny_WIG20)
 
 ### [Ekonometria panelowa w analizie determinant stopy inwestycji](https://github.com/m-kopacz/Ekonometria_panelowa_determinanty_inwestycji)
 
