@@ -3,7 +3,7 @@
 
 ### [Głębokie uczenie ze wzmocnieniem w handlu algorytmicznym](https://github.com/m-kopacz/DRL_handel_algorytmiczny_polski_rynek_akcji)
 
-### [Analiza ekonometryczna determinant stopy inwestycji](https://github.com/m-kopacz/Analiza_ekonometryczna_inwestycji)
+### [Ekonometria panelowa w analizie determinant stopy inwestycji](https://github.com/m-kopacz/Ekonometria_panelowa_determinanty_inwestycji)
 
 
 ### [Porównanie klasycznego i kwantowego SVM](https://github.com/m-kopacz/qSVM_klasyfikacja)
