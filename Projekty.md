@@ -4,17 +4,15 @@
 
 W tej sekcji przedstawiam skondensowane podsumowanie zrealizowanych przeze mnie projektów analitycznych i programistycznych. Pełna dokumentacja oraz kod źródłowy znajdują się w dedykowanych repozytoriach.
 
-[📈 Głębokie uczenie ze wzmocnieniem w optymalizacji obrotu akcjami spółek WIG20](https://github.com/m-kopacz/DRL_handel_algorytmiczny_WIG20)
-
-[💳 Przewidywanie i Analiza Ryzyka Niewypłacalności Kart Kredytowych](https://github.com/m-kopacz/Predykcja_defaultu)
-
-[👥 Klasyfikacja Dochodów (UCI Adult Census Income)](https://github.com/m-kopacz/Predykcja_dochodow)
-
-[🇪🇺 Ekonometria panelowa w analizie determinant stopy inwestycji](https://github.com/m-kopacz/Ekonometria_panelowa_determinanty_inwestycji)
-
-[🎗️ Analiza Przeżycia Pacjentek z Rakiem Piersi](https://github.com/m-kopacz/Analiza_przezycia_pacjentek_z_rakiem_piersi)
-
-[Porównanie klasycznego i kwantowego SVM w klasyfikacji](https://github.com/m-kopacz/qSVM_klasyfikacja)
+* [Głębokie uczenie ze wzmocnieniem w optymalizacji obrotu akcjami spółek WIG20](https://github.com/m-kopacz/DRL_handel_algorytmiczny_WIG20)
+* [Przewidywanie i Analiza Ryzyka Niewypłacalności Kart Kredytowych](https://github.com/m-kopacz/Predykcja_defaultu)
+* [Klasyfikacja Dochodów (UCI Adult Census Income)](https://github.com/m-kopacz/Predykcja_dochodow)
+* [Ekonometria panelowa w analizie determinant stopy inwestycji](https://github.com/m-kopacz/Ekonometria_panelowa_determinanty_inwestycji)
+* [Analiza Przeżycia Pacjentek z Rakiem Piersi](https://github.com/m-kopacz/Analiza_przezycia_pacjentek_z_rakiem_piersi)
+* [Porównanie klasycznego i kwantowego SVM w klasyfikacji](https://github.com/m-kopacz/qSVM_klasyfikacja)
+* [Analiza Koszykowa w R](https://github.com/m-kopacz/Analiza_asocjacji_zakupy/blob/main/README.md)
+* [Segmentacja Klientów Galerii Handlowej za pomocą Algorytmu K-Średnich (K-Means)](https://github.com/m-kopacz/Klasteryzacja_klientow_galerii_handlowej)
+* [Optymalizacja trasy pracownika InPost metodą Tabu Search](https://github.com/m-kopacz/Optymalizacja_trasy_kuriera)
 
 ---
 
@@ -25,7 +23,7 @@ W tej sekcji przedstawiam skondensowane podsumowanie zrealizowanych przeze mnie 
 **🛠️ Architektura i metodyka:**
 
 * **Algorytmy i Walidacja:** Implementacja 5 modeli dla ciągłych przestrzeni akcji (**PPO**, **A2C**, **DDPG**, **TD3**, **SAC**). Zastosowano rygorystyczną walidację kroczącą (*Walk-Forward*) na 25 kwartałach, eliminując wyciek danych (*data leakage*).
-* **Redukcja Wymiarowości:** Kaskadowy potok redukujący klątwę wymiarowości ze 110 do 14 zmiennych: transformacja Z-Score -> korelacja Spearmana -> klasteryzacja hierarchiczna -> *Mutual Information* -> selekcja marginalna **SHAP** na modelach XGBoost.
+* **Redukcja Wymiarowości:** Kaskadowy potok redukujący klątwę wymiarowości ze 110 do 14 zmiennych: transformacja Z-Score -> korelacja Spearmana -> klasteryzacja hierarchiczna -> *Mutual Information* -> selekcja na bazie **SHAP** z modeli XGBoost.
 * **Urealnione Środowisko:** Implementacja prowizji maklerskich (0.10%), opóźnień egzekucji (sygnał w dniu $t$, zakup po cenie otwarcia w dniu $t+1$), handlu ułamkowego oraz logarytmicznej stopy zwrotu jako funkcji nagrody.
 * **Optymalizacja:** Bayesowskie strojenie hiperparametrów (**Optuna TPE**) pod kątem mediany wskaźnika Sortino oraz budowa wieloagentowych komitetów decyzyjnych (*Ensemble Learning* do $N=50$).
 
@@ -124,3 +122,63 @@ W tej sekcji przedstawiam skondensowane podsumowanie zrealizowanych przeze mnie 
 **🛠️ Tech stack:** `Python`, `PennyLane`, `scikit-learn`, `XGBoost`.
 
 **🏆 Wynik:** Uzyskano niemal identyczną precyzję predykcyjną w obu wariantach modelowania, z marginalną przewagą klasycznego SVM pod względem wskaźnika ROC AUC (**0.90** dla SVM vs **0.89** dla qSVM).
+
+---
+
+### [🛒 Analiza Koszykowa w R](https://www.google.com/search?q=link-do-repozytorium)
+
+**🎯 Cel projektu:** Analiza asocjacyjna na zbiorze danych transakcyjnych `groceries` (9 835 transakcji z okresu jednego miesiąca)[cite: 1]. Celem było odkrycie ukrytych powiązań zakupowych między produktami i stworzenie na ich podstawie rentownych strategii marketingowych oraz operacyjnych dla sklepu spożywczego[cite: 1].
+
+**🛠️ Architektura i metodyka:**
+
+* **Tech stack:** Analizę zrealizowano w środowisku R przy użyciu biblioteki `arules` do wydobywania reguł asocjacyjnych[cite: 1] oraz pakietu `tidyverse` do przetwarzania i wizualizacji danych[cite: 1].
+* **Dobór parametrów:** Wykorzystano algorytm Apriori z matematycznie uzasadnionymi progami[cite: 1]: minimalne wsparcie na poziomie 0,015 (wzorzec występujący minimum 5 razy dziennie / 150 transakcji miesięcznie)[cite: 1], ufność na poziomie 0,5 (klient kupuje produkt z prawej strony reguły w minimum 50% przypadków)[cite: 1] oraz minimalna długość reguły równa 2 (wykluczenie reguł jednoelementowych)[cite: 1].
+
+**🏆 Kluczowe wyniki i wnioski:**
+
+* **Wygenerowane reguły:** Model Apriori wyłonił dwie dominujące reguły o silnym przyroście (Lift > 2)[cite: 1]: `{tropical fruit, yogurt} => {whole milk}` (Lift = 2,02; Ufność = 51,7%; Wsparcie = 1,5%)[cite: 1] oraz `{other vegetables, yogurt} => {whole milk}` (Lift = 2,01; Ufność = 51,3%; Wsparcie = 2,2%)[cite: 1].
+* **Interpretacja biznesowa:** Prawdopodobieństwo zakupu mleka pełnego jest ponad dwukrotnie wyższe w obecności jogurtu i owoców tropikalnych lub warzyw[cite: 1]. Wskazuje to na komplementarność produktów w śniadaniach, deserach (np. smoothie)[cite: 1] czy posiłkach wytrawnych (np. zupy krem i warzywa z dipami)[cite: 1].
+* **Rekomendacje operacyjne:** Sformułowano konkretne wskazówki biznesowe obejmujące visual merchandising (umieszczenie powiązanych produktów blisko siebie na trasie klienta)[cite: 1], tworzenie promocji pakietowych (np. tańsze mleko przy zakupie jogurtu i owoców)[cite: 1] oraz content marketing (udostępnianie przepisów kulinarnych przy stoiskach)[cite: 1].
+
+---
+
+### [👥 Segmentacja Klientów Galerii Handlowej za pomocą Algorytmu K-Średnich (K-Means)](https://www.google.com/search?q=link-do-repozytorium)
+
+**🎯 Cel projektu:** Segmentacja 200 klientów galerii handlowej (zbiór `mallcustomers`) w języku R na podstawie rocznego dochodu (`Income`) oraz wskaźnika wydatków (`SpendingScore`)[cite: 2]. Celem było wyodrębnienie spójnych profili zakupowych umożliwiających optymalne dopasowanie strategii marketingowych[cite: 2].
+
+**🛠️ Architektura i metodyka:**
+
+* **Preprocessing:** Oczyszczenie danych z symboli walut i przecinków w zmiennej dochodowej (konwersja do typu liczbowego)[cite: 2] oraz normalizacja (skalowanie) zmiennych w celu uniknięcia dominacji jednej cechy[cite: 2].
+* **Dobór liczby klastrów:** Zastosowano trzy niezależne metody matematyczne: metodę łokcia, metodę średniego zarysu (Silhouette) oraz statystykę odstępu (Gap Statistic)[cite: 2]. Wszystkie metody spójnie potwierdziły, że optymalna liczba klastrów wynosi $k=6$[cite: 2].
+* **Modelowanie:** Uruchomienie algorytmu K-Means z parametrem `nstart = 25` (25 losowych inicjalizacji centroidów) w celu zapobiegania zatrzymaniu się algorytmu w minimum lokalnym[cite: 2].
+
+**🏆 Kluczowe wyniki i wnioski:**
+
+* **Wyodrębnione profile zakupowe:** Zidentyfikowano 6 spójnych segmentów konsumentów[cite: 2]:
+* **Klaster 1 i 2 (Kluczowi Klienci - VIP):** Młode osoby (średnio 32-33 lata) o wysokich dochodach i wysokich wydatkach[cite: 2].
+* **Klaster 4 (Klasa Średnia):** Najliczniejsza grupa (81 osób, średnio 43 lata) o przeciętnych dochodach i wydatkach[cite: 2].
+* **Klaster 5 (Młodzi Trendsetterzy):** Bardzo młodzi klienci (średnio 25 lat) o niskich dochodach, ale bardzo wysokich wydatkach[cite: 2].
+* **Klaster 6 (Oszczędni Profesjonaliści):** Osoby o wysokich zarobkach i niskich wydatkach (średnio 41 lat)[cite: 2].
+* **Klaster 3 (Oszczędni Konserwatyści):** Starsza grupa o niskim budżecie i niskich wydatkach[cite: 2].
+
+
+* **Rekomendacje marketingowe:** Sformułowano celowane strategie: oferty premium i eventy dla VIP-ów[cite: 2], płatności odroczone (BNPL) i kampanie w social mediach dla Młodych Trendsetterów[cite: 2], akcje lojalnościowe i produkty na lata dla Oszczędnych Profesjonalistów[cite: 2] oraz wyprzedaże dla Oszczędnych Konserwatystów[cite: 2].
+
+---
+
+### [🚚 Optymalizacja trasy pracownika InPost metodą Tabu Search](https://www.google.com/search?q=link-do-repozytorium)
+
+**🎯 Cel projektu:** Opracowanie najkrótszej ciągłej trasy bez powtórzeń (wariant zagadnienia komiwojażera - TSP) dla kuriera InPost doręczającego przesyłki z centralnego oddziału w Radomiu do 13 paczkomatów i wracającego do bazy[cite: 3]. Optymalizację przeprowadzono w Pythonie za pomocą algorytmu Przeszukiwania tabu (Tabu Search)[cite: 3].
+
+**🛠️ Architektura i metodyka:**
+
+* **Kalkulacja dystansu:** Wykorzystano bibliotekę `geopy` (funkcja `distance()`) do obliczania odległości geograficznej po linii prostej (great-circle distance) na podstawie współrzędnych geograficznych punktów[cite: 3].
+* **Operatory sąsiedztwa:** Zaimplementowano i porównano trzy warianty modyfikacji trasy[cite: 3]: `swap` (losowa zamiana dwóch punktów)[cite: 3], `2-opt` (odwrócenie kolejności odwiedzania punktów na wybranym odcinku, eliminujące przecięcia w trasie)[cite: 3] oraz `insert` (usunięcie losowego punktu i wstawienie go w nowe miejsce)[cite: 3].
+* **Eksperymenty i hiperparametry:** Przetestowano 108 konfiguracji modelu, badając wpływ liczby iteracji, długości listy tabu (pamięci krótkoterminowej algorytmu) oraz typu sąsiedztwa[cite: 3].
+
+**🏆 Kluczowe wyniki i wnioski:**
+
+* **Najlepsze rozwiązanie:** Najkrótsza znaleziona trasa wyniosła **194,94 km**[cite: 3]. Wynik ten osiągnięto przy użyciu strategii `insert` oraz `2-opt` (dla parametrów: `iteracje=1000`, `dlugosc_tabu=100`)[cite: 3].
+* **Przewaga metody Insert:** Operator `insert` wykazał najwyższą stabilność i odporność na warunki początkowe, odnajdując optymalną trasę najczęściej (27 razy)[cite: 3]. Średnia odległość dla metod `insert` (195,76 km) i `2-opt` (195,15 km) była znacząco lepsza niż dla operatora `swap` (222,12 km), który okazał się mało skuteczny w złożonych problemach trasowania[cite: 3].
+* **Wpływ pamięci algorytmu:** Dłuższa lista tabu poprawiała jakość rozwiązania dzięki skuteczniejszej ochronie przed zapętlaniem się algorytmu i utknięciem w lokalnym optimum[cite: 3].
+* **Kierunki rozwoju:** Zaproponowano rozbudowę modelu o rzeczywisty czas przejazdu z publicznych API[cite: 3], restrykcje drogowe (np. zakazy skrętu, remonty)[cite: 3] oraz integrację z systemami GIS i grafami drogowymi[cite: 3].
