@@ -8,6 +8,8 @@ W tej sekcji przedstawiam skondensowane podsumowanie zrealizowanych przeze mnie 
 
 [💳 Przewidywanie i Analiza Ryzyka Niewypłacalności Kart Kredytowych](https://github.com/m-kopacz/Predykcja_defaultu)
 
+[👥 Klasyfikacja Dochodów (UCI Adult Census Income)](https://github.com/m-kopacz/Predykcja_dochodow)
+
 [🇪🇺 Ekonometria panelowa w analizie determinant stopy inwestycji](https://github.com/m-kopacz/Ekonometria_panelowa_determinanty_inwestycji)
 
 [🎗️ Analiza Przeżycia Pacjentek z Rakiem Piersi](https://github.com/m-kopacz/Analiza_przezycia_pacjentek_z_rakiem_piersi)
@@ -35,7 +37,7 @@ W tej sekcji przedstawiam skondensowane podsumowanie zrealizowanych przeze mnie 
 | **Portfel Markowitza** | **-13.57%** | - | - |
 | **DRL Komitet WIN ($N=50$)** | **+86.00%** | **2.10** | **Znacznie zredukowany** |
 
-* Aż **99.6% komitetów DRL** pokonało rynek, wykazuąc się selektywną i agresywną alokacją kapitału w najbardziej perspektywiczne spółki podczas fazy odbicia po krachu.
+* Aż **99.6% komitetów DRL** pokonało rynek, wykazując się selektywną i agresywną alokacją kapitału w najbardziej perspektywiczne spółki podczas fazy odbicia po krachu.
 
 ---
 
@@ -56,6 +58,29 @@ W tej sekcji przedstawiam skondensowane podsumowanie zrealizowanych przeze mnie 
 
 ---
 
+### [👥 Klasyfikacja Dochodów (UCI Adult Census Income)](https://github.com/m-kopacz/Predykcja_dochodow)
+
+**🎯 Cel projektu:** Klasyfikacja binarna przewidująca roczny dochód powyżej 50 000 USD na podstawie cech demograficzno-społecznych (*UCI Adult Dataset*, 48 842 obserwacje) w warunkach znacznego niezbalansowania klas (tylko 23.9% populacji zarabia >50k USD) oraz obecności braków danych.
+
+**🛠️ Architektura i metodyka:**
+
+* **Zaawansowany Preprocessing:** Obsługa nielosowych braków danych (MNAR -> testy Chi-kwadrat i wyodrębnienie kategorii "Missing"), winsoryzacja wartości odstających (1. i 99. percentyl), usunięcie redundantnej zmiennej `fnlwgt` oraz hybrydowe kodowanie zmiennych (*Target Encoding* z wygładzaniem vs *One-Hot Encoding*).
+* **Segmentacja Nienadzorowana:** Redukcja wymiarowości (PCA) i klasteryzacja KMeans – wyodrębnienie 3 naturalnych segmentów społecznych, w tym „elity dochodowej”, w której 100% badanych osiągało dochody >50k USD.
+* **Modelowanie i Threshold Tuning:** Ewaluacja 5 klasyfikatorów (Drzewo Decyzyjne z *Minimal Cost-Complexity Pruning*, XGBoost, Random Forest, Regresja Logistyczna, SVM-RBF). Kalibracja progów decyzyjnych na podstawie krzywej *Precision-Recall* pod kątem maksymalizacji wskaźnika **F1-Score**.
+
+**🏆 Kluczowe wyniki:**
+
+| Model | Optymalny Próg | F1-Score (Test) | Accuracy (Test) | AUC (Test) |
+| --- | --- | --- | --- | --- |
+| **XGBoost** | 0.5000 | **0.7290** | **86.62%** | **0.9254** |
+| **Random Forest** | 0.6093 (tuned) | **0.7131** | 85.40% | 0.9145 |
+| **Drzewo Decyzyjne** | 0.3432 (tuned) | **0.6962** | 84.89% | 0.9059 |
+
+* **Lider predykcji (XGBoost):** Bezkonkurencyjnie poradził sobie z nieliniowymi interakcjami w danych, osiągając najwyższe wskaźniki we wszystkich badanych metrykach.
+* **Efekt kalibracji progów:** Obniżenie progu odcięcia w modelach klasycznych (np. do 0.18 dla SVM i 0.32 dla Regresji Logistycznej) skompensowało nierównowagę klas, pozwalając na skokowy wzrost czułości bez utraty precyzji.
+
+---
+
 ### [🇪🇺 Ekonometria panelowa w analizie determinant stopy inwestycji](https://github.com/m-kopacz/Ekonometria_panelowa_determinanty_inwestycji)
 
 **🎯 Cel projektu:** Praca licencjacka (SGH) mająca na celu ilościową identyfikację makroekonomicznych i demograficznych determinant stopy inwestycji w 20 krajach Europy w latach 1995–2021 (502 obserwacje panelowe).
@@ -69,7 +94,7 @@ W tej sekcji przedstawiam skondensowane podsumowanie zrealizowanych przeze mnie 
 **🏆 Kluczowe wnioski ekonomiczne i prognostyczne:**
 
 * **Potwierdzenie teorii wzrostu:** Wykazano silny, pozytywny wpływ wzrostu PKB (**teoria akceleratora**), wydatków na R&D i patentów (**teoria endogenicznego wzrostu**) oraz występowanie efektu przyciągania prywatnego kapitału przez deficyt budżetowy (*crowding-in*).
-* **Czynniki hamujące:** Bezrobocie, wysoka produktywność (efektywniejsne wykorzystanie obecnego kapitału) oraz obciążenie demograficzne statystycznie istotnie ograniczają stopę inwestycji.
+* **Czynniki hamujące:** Bezrobocie, wysoka produktywność (efektywniejsze wykorzystanie obecnego kapitału) oraz obciążenie demograficzne statystycznie istotnie ograniczają stopę inwestycji.
 * **Trafność ex-post:** W symulacji prognoz na latach 2017–2021 model osiągnął wysokie wskaźniki dokładności (**MAPE = 12.59%**, **RMSE = 2.96%**, **MAE = 2.49%**).
 
 ---
