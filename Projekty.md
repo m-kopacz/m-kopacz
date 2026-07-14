@@ -1,6 +1,8 @@
 # Projekty
 ---
 
+W tej sekcji przedstawiam po krótce zrealizowane przeze mnie projekty. Szczegóły można znaleźć oddzielnych repozytoriach dla każdego z nich.
+
 ## Spis Treści
 1. [📈 Głębokie Uczenie ze Wzmocnieniem (DRL) w Handlu Algorytmicznym na WIG20](#1-głębokie-uczenie-ze-wzmocnieniem-drl-w-handlu-algorytmicznym-na-wig20)
 2. [💳 Przewidywanie i Analiza Ryzyka Niewypłacalności Kart Kredytowych](#2-przewidywanie-i-analiza-ryzyka-niewypłacalności-kart-kredytowych)
