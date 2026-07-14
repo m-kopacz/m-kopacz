@@ -3,12 +3,17 @@
 
 W tej sekcji przedstawiam po krótce zrealizowane przeze mnie projekty. Szczegóły można znaleźć oddzielnych repozytoriach dla każdego z nich.
 
-## Spis Treści
-1. [📈 Głębokie Uczenie ze Wzmocnieniem (DRL) w Handlu Algorytmicznym na WIG20](#1-głębokie-uczenie-ze-wzmocnieniem-drl-w-handlu-algorytmicznym-na-wig20)
-2. [💳 Przewidywanie i Analiza Ryzyka Niewypłacalności Kart Kredytowych](#2-przewidywanie-i-analiza-ryzyka-niewypłacalności-kart-kredytowych)
-3. [👥 Klasyfikacja Dochodów Demograficznych (UCI Adult Census Income)](#3-klasyfikacja-dochodów-demograficznych-uci-adult-census-income)
-4. [🇪🇺 Analiza Ekonometryczna Determinant Stopy Inwestycji w Europie](#4-analiza-ekonometryczna-determinant-stopy-inwestycji-w-europie)
-5. [🎗️ Kompleksowa Analiza Przeżycia Pacjentek z Rakiem Piersi w SAS](#5-kompleksowa-analiza-przeżycia-pacjentek-z-rakiem-piersi-w-sas)
+[📈 Głębokie uczenie ze wzmocnieniem w optymalizacji obrotu akcjami spółek WIG20](https://github.com/m-kopacz/DRL_handel_algorytmiczny_WIG20)
+
+[💳 Przewidywanie i Analiza Ryzyka Niewypłacalności Kart Kredytowych](https://github.com/m-kopacz/Predykcja_defaultu)
+
+[👥 Klasyfikacja Dochodów (UCI Adult Census Income)](https://github.com/m-kopacz/Predykcja_dochodow)
+
+[🇪🇺 Ekonometria panelowa w analizie determinant stopy inwestycji](https://github.com/m-kopacz/Ekonometria_panelowa_determinanty_inwestycji)
+
+[🎗️ Analiza Przeżycia Pacjentek z Rakiem Piersi](https://github.com/m-kopacz/Analiza_przezycia_pacjentek_z_rakiem_piersi)
+
+[Porównanie klasycznego i kwantowego SVM w klasyfikacji](https://github.com/m-kopacz/qSVM_klasyfikacja)
 
 ---
 
@@ -66,7 +71,7 @@ Celem projektu było zbudowanie modelu klasyfikacji binarnej prognozującego pra
 
 ---
 
-### [👥 Klasyfikacja Dochodów Demograficznych (UCI Adult Census Income)](https://github.com/m-kopacz/Predykcja_dochodow)
+### [👥 Klasyfikacja Dochodów (UCI Adult Census Income)](https://github.com/m-kopacz/Predykcja_dochodow)
 
 ### 📌 Opis Projektu & Rozwiązywany Problem
 Projekt dotyczył klasyfikacji binarnej mającej na celu przewidzenie, czy roczny dochód mieszkańca USA przekracza próg **50 000 USD** na podstawie jego cech demograficznych i społecznych. Badanie bazowało na klasycznym zbiorze *UCI Adult Dataset* (48 842 obserwacje). Wyzwaniami były: zaburzenie proporcji klas (jedynie 23.9% zarabia powyżej 50K), obecność braków danych oraz nieliniowe relacje cech demograficznych z poziomem zamożności.
